@@ -1,2 +1,2 @@
-# Amine-Wa-Taberu
+# Amine Otaku
 Project 1:
