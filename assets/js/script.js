@@ -1,25 +1,24 @@
-const apiKey = 'rZnuDLVC0bYtT2J7ND-ReZbAYg0j1tRMIcUwH00_Nkm4LKfUaVs7brjH5yuiNsLE';
+let getLyric = async (song) => {
+	try {
+		const apiKey = "rZnuDLVC0bYtT2J7ND-ReZbAYg0j1tRMIcUwH00_Nkm4LKfUaVs7brjH5yuiNsLE";
+		const geniusAPI = `https://floating-headland-95050.herokuapp.com/https://api.genius.com/search?q=${encodeURIComponent(song)}`;
 
-// Example: Search for lyrics
-const searchQuery = `hero's come back`;
-const searchEndpoint = `https://floating-headland-95050.herokuapp.com/https://api.genius.com/search?q=${encodeURIComponent(searchQuery)}`;
+		const response = await fetch(geniusAPI, {
+			headers: {
+				Authorization: `Bearer ${apiKey}`,
+			},
+		});
 
-// Make a GET request to the Genius API
-fetch(searchEndpoint, {
-  headers: {
-    Authorization: `Bearer ${apiKey}`,
-  },
-})
-  .then(response => response.json())
-  .then(data => {
-    // Handle the API response here
-    console.log(data);
-  })
-  .catch(error => {
-    // Handle errors
-    console.error('Error:', error);
-  });
+		const data = await response.json();
+		console.log(data);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+getLyric(`hero's come back`)
 
 
-
-  
+// submitBtn.on("click", (event) => {
+//     getLyric(`hero's come back`);
+// })
