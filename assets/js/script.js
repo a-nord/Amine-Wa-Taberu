@@ -11,6 +11,11 @@ let getAnimeTrack = async (anime) => {
 		let animeData = await animeResponse.json();
 		console.log(animeData);
 
+		 let songs = animeData.search.songs[2].title;
+		console.log("Song: " + songs);
+
+		getTrackInfo(songs);
+
 	} catch (error) {
 		console.error("Error:", error);
 	}
@@ -29,7 +34,8 @@ let getTrackInfo = async (track) => {
         const firstTrack = trackData.results?.trackmatches?.track[0];
 
         if (firstTrack) {
-            console.log('Track Information:', firstTrack);
+            console.log('Artist:', firstTrack.artist);
+			
 
         } else {
             console.log('No information found for the track');
@@ -41,6 +47,6 @@ let getTrackInfo = async (track) => {
 };
 
 
-getTrackInfo('Naru');
+// getTrackInfo('Naru');
 
 getAnimeTrack('naruto');
