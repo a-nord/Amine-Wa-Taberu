@@ -1,4 +1,5 @@
 let userinput = "pokemon"
+let results = $(".results")
 
 
 
@@ -15,12 +16,14 @@ let getAnimeTrack = async (anime) => {
 		let animeData = await animeResponse.json();
 		console.log(animeData);
 
-		 let songs = animeData.search.songs;
-
-		 songs.forEach(element => {
-			console.log(songs.title);
-		 });
+		 let songs = animeData.search.songs.map(element => element.title);
 		 console.log(songs);
+
+         songs.forEach(element => {
+            const card = $(`<button type="button">${element} </button>`)
+            
+            results.append(card)
+         });
 
 		// getTrackInfo(songs);
 
