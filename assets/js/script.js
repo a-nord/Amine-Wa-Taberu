@@ -14,6 +14,8 @@ let getAnimeTrack = async (anime) => {
 	} catch (error) {
 		console.error("Error:", error);
 	}
+
+
 };
 
 
@@ -39,6 +41,6 @@ let getTrackInfo = async (track) => {
 };
 
 
-getTrackInfo('A Whole New World');
+getTrackInfo('Naru');
 
-getAnimeTrack('pokemon');
+getAnimeTrack('naruto');
