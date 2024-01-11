@@ -1,37 +1,33 @@
-let getLyric = async (song) => {
-  try {
-    const apiKey =
-      "rZnuDLVC0bYtT2J7ND-ReZbAYg0j1tRMIcUwH00_Nkm4LKfUaVs7brjH5yuiNsLE";
-    const geniusAPI = `https://floating-headland-95050.herokuapp.com/https://api.genius.com/search?q=${encodeURIComponent(
-      song
-    )}`;
+//================= Global Variables ====================//
+const apiKey = `eeb927aca555bdd1797a9ff27182de7f`;
+const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
 
-    const response = await fetch(geniusAPI, {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    });
+//================ Functions ===================//
 
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+let getAnime = async (anime) => {
+	try {
+		const animeResponse = await fetch(`https://api.animethemes.moe/anime/${anime}`);
+
+		let animeData = await animeResponse.json();
+
+		console.log(animeData);
+	} catch (error) {
+		console.error("Error:", error);
+	}
 };
 
-//getLyric(`hero's come back`)
+let getArtistInfo = async (artist) => {
+	try {
+		const lastFmAPI = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${apiKey}&format=json`;
 
-fetch("https://api.animethemes.moe/anime/")
-  .then((response) => response.json())
-  .then((data) => {
-    // Access the slug value from the response data
-    const slug = data.slug;
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+		const artistResponse = await fetch(lastFmAPI);
+		const artistData = await artistResponse.json();
 
-// submitBtn.on("click", (event) => {
-//     getLyric(`hero's come back`);
-// })
+		console.log(artistData.artist);
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+getArtistInfo("nobodyknows");
+getAnime("pokemon");
