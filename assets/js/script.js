@@ -1,3 +1,7 @@
+let userinput = "pokemon"
+
+
+
 //================= Global Variables ====================//
 const apiKey = `eeb927aca555bdd1797a9ff27182de7f`;
 const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
@@ -11,10 +15,14 @@ let getAnimeTrack = async (anime) => {
 		let animeData = await animeResponse.json();
 		console.log(animeData);
 
-		 let songs = animeData.search.songs[2].title;
-		console.log("Song: " + songs);
+		 let songs = animeData.search.songs;
 
-		getTrackInfo(songs);
+		 songs.forEach(element => {
+			console.log(songs.title);
+		 });
+		 console.log(songs);
+
+		// getTrackInfo(songs);
 
 	} catch (error) {
 		console.error("Error:", error);
@@ -49,4 +57,4 @@ let getTrackInfo = async (track) => {
 
 // getTrackInfo('Naru');
 
-getAnimeTrack('naruto');
+getAnimeTrack(userinput);
