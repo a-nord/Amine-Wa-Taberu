@@ -6,11 +6,11 @@ const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
 
 let getAnime = async (anime) => {
 	try {
-		const animeResponse = await fetch(`https://api.animethemes.moe/anime/${anime}`);
+		const animeResponse = await fetch(`https://api.animethemes.moe/anime/${anime}?include=animethemes,artists`);
 
 		let animeData = await animeResponse.json();
-
 		console.log(animeData);
+
 	} catch (error) {
 		console.error("Error:", error);
 	}
@@ -30,4 +30,4 @@ let getArtistInfo = async (artist) => {
 };
 
 getArtistInfo("nobodyknows");
-getAnime("pokemon");
+getAnime('pokemon');
