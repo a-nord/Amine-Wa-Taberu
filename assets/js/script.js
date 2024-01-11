@@ -4,30 +4,43 @@ const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
 
 //================ Functions ===================//
 
-let getAnime = async (anime) => {
+let getAnimeTrack = async (anime) => {
 	try {
-		const animeResponse = await fetch(`https://api.animethemes.moe/anime/${anime}`);
+		const animeResponse = await fetch(`https://api.animethemes.moe/search?q=${anime}&include[anime]=resources`);
 
 		let animeData = await animeResponse.json();
-
 		console.log(animeData);
+
 	} catch (error) {
 		console.error("Error:", error);
 	}
+
+
 };
 
-let getArtistInfo = async (artist) => {
-	try {
-		const lastFmAPI = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artist}&api_key=${apiKey}&format=json`;
 
-		const artistResponse = await fetch(lastFmAPI);
-		const artistData = await artistResponse.json();
+let getTrackInfo = async (track) => {
+    try {
+        const lastFmAPI = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${track}&api_key=${apiKey}&format=json`;
 
-		console.log(artistData.artist);
-	} catch (error) {
-		console.error(error);
-	}
+        const trackResponse = await fetch(lastFmAPI);
+        const trackData = await trackResponse.json();
+
+        const firstTrack = trackData.results?.trackmatches?.track[0];
+
+        if (firstTrack) {
+            console.log('Track Information:', firstTrack);
+
+        } else {
+            console.log('No information found for the track');
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
 };
 
-getArtistInfo("nobodyknows");
-getAnime("pokemon");
+
+getTrackInfo('Naru');
+
+getAnimeTrack('naruto');
