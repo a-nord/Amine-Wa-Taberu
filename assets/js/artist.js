@@ -17,6 +17,8 @@ const getTrackInfo = async (track) => {
 		const firstTrack = trackData.results?.trackmatches?.track[0];
 		const artistName = firstTrack.artist;
 
+		console.log(artistName);
+
 		console.log(trackData);
 
 		if (artistName) {
@@ -72,6 +74,7 @@ const getArtistSongs = async (artistName) => {
 
 const getFromLocal = () => {
 	let getTrack = JSON.parse(localStorage.getItem("song"));
+	console.log(getTrack);
 	getTrackInfo(getTrack);
 };
 
