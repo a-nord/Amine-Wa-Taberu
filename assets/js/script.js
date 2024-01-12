@@ -1,5 +1,6 @@
-let userinput = "pokemon"
+let searchInput = $("#search-bar")
 let results = $(".results")
+let searchBtn =$("#searchBtn")
 
 
 
@@ -10,6 +11,7 @@ const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
 //================ Functions ===================//
 
 let getAnimeTrack = async (anime) => {
+    results.empty();
 	try {
 		const animeResponse = await fetch(`https://api.animethemes.moe/search?q=${anime}&include[anime]=resources`);
 
@@ -60,7 +62,19 @@ let getTrackInfo = async (track) => {
     }
 };
 
+searchBtn.on("click", (event) => {
+	event.preventDefault(event);
+	// Get the value from the input section from html
+	getAnimeTrack(searchInput.val());
+    searchInput.val("");
 
-// getTrackInfo('Naru');
+});
 
-getAnimeTrack(userinput);
+//===== Press 'Enter' on the input field to search ====//
+searchInput.on("keydown", (event) =>{
+	if (event.key === "Enter") {
+		event.preventDefault();
+		getAnimeTrack(searchInput.val());
+		searchInput.val("");
+	}
+});
