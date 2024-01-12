@@ -40,8 +40,10 @@ const getArtistBio = async (artistName) => {
 		console.log(artistData);
 
 		const content = artistData.artist.bio.content;
-		artistBio.append(content);
-		console.log(content);
+		const formattedContent = content.replace(/\n/g, '<br>'); // Replace newline characters with HTML line break tags
+
+        artistBio.append(formattedContent); // Use innerHTML to render HTML content
+        console.log(formattedContent);
 
 		artistInfo.append(`by ` + artistName);
 	} catch (error) {
