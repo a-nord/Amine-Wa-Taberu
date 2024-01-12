@@ -5,6 +5,7 @@ const searchBtn = $("#searchBtn");
 let likeBtn = $(".likeBtn");
 const song = $("#song");
 let favSong = $("favSong");
+const likeSongs = $("#liked-songs");
 
 //================================= Functions =================================//
 
@@ -29,17 +30,17 @@ const getAnimeTrack = async (anime) => {
 				);
 				// Add a click event for the favSong button
 				card.find(".favSong").on("click", () => {
-					addTrackToLocal(element);
+					addTrackToLocal(element.title);
 					window.location.href = "index2.html";
 				});
 
 				// Add a click event for the likeBtn button
 				card.find(".likeBtn").on("click", () => {
 					const favorite = element.title;
-					
+
 					addToFavorite(favorite);
 					console.log(`Liked: ${favorite}`);
-					// Add other actions for liking the song
+
 				});
 
 				results.append(card);
@@ -54,27 +55,40 @@ const getAnimeTrack = async (anime) => {
 }; // END
 
 const addTrackToLocal = (track) => {
-	localStorage.setItem("song", JSON.stringify(track.title));
+	localStorage.setItem("song", JSON.stringify(track));
 };
 
 const addToFavorite = (favorite) => {
-	// Get array in local storage
 	let addToFavorite = JSON.parse(localStorage.getItem("favorite"));
 
-	// Check to see if it is not an array
 	if (!Array.isArray(addToFavorite)) {
 		addToFavorite = [];
-
-		// Delete the last index if array length is over 9
 	} else if (addToFavorite.length > 14) {
 		addToFavorite.pop();
 	}
 
-	// Add new city to beginning of the array and update local storage
 	addToFavorite.unshift(favorite);
 	localStorage.setItem("favorite", JSON.stringify(addToFavorite));
 };
 
+const displayFavorites = () => {
+	likeSongs.empty();
+	const storedFavorites = JSON.parse(localStorage.getItem("favorite"));
+	if (storedFavorites) {
+		storedFavorites.forEach((favoriteSong) => {
+			const listSongs = $(
+				`<button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"> ${favoriteSong} </button>`
+			);
+			listSongs.on("click", () => {
+				
+				addTrackToLocal(favoriteSong);
+				console.log(favoriteSong);
+				window.location.href = "index2.html";
+			});
+			likeSongs.append(listSongs);
+		});
+	}
+};
 //============Handlers=================//
 searchBtn.on("click", (event) => {
 	event.preventDefault(event);
@@ -94,27 +108,5 @@ searchInput.on("keydown", (event) => {
 	}
 });
 
-
-// likeBtn.on("click", (event) => {
-//     event.preventDefault();
-// console.log(1);
-//     const favorite = $(event.currentTarget).siblings(".favSong").text();
-//     console.log(favorite);
-// });
-
-// favSong.on("click", () => {
-// 	console.log(1);
-// 	// const apple = $(this)("favSong").val();
-// 	// console.log(apple);
-// 	// addTrackToLocal(element);
-// 	// window.location.href = "index2.html"
-// })
-
-// favSong.on("click", (event) => {
-// 	console.log(1);
-//     event.preventDefault();
-//     const songTitle = $(event.currentTarget).text();
-//     console.log(songTitle);
-//     // Now, you can use songTitle to add to local storage or perform other actions
-// });
 getAnimeTrack("pokemon"); //FIXME:
+displayFavorites();
