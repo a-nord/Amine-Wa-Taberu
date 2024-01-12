@@ -11,11 +11,12 @@ const getAnimeTrack = async (anime) => {
 		const animeResponse = await fetch(`https://api.animethemes.moe/search?q=${anime}`);
 
 		const animeData = await animeResponse.json();
-        console.log(animeData);
+		console.log(animeData);
 
 		const songs = animeData.search.songs;
 		console.log(songs);
-		if (songs.length !== 0) { //FIXME: make sure to change to `songs` out when done
+		if (songs.length !== 0) {
+			//FIXME: make sure to change to `songs` out when done
 			songs.forEach((element) => {
 				const card = $(`<button type="button">${element.title} </button>`);
 				card.on("click", () => {
@@ -24,11 +25,10 @@ const getAnimeTrack = async (anime) => {
 				});
 				results.append(card);
 			});
-		} else { 
-            results.append(`There's no songs with this title. Please try a differnt spelling`)
-            //searchMoreAnime(animeData)
-        }
-
+		} else {
+			results.append(`There's no songs with this title. Please try a differnt spelling`);
+			//searchMoreAnime(animeData)
+		}
 	} catch (error) {
 		console.error("Error:", error);
 	}
@@ -42,25 +42,19 @@ const getAnimeTrack = async (anime) => {
 //     const moreAnime = limti1Anime[0].name
 //    console.log(moreAnime)
 
-
 // }
 // // END
-
-
-
-
 
 const addTrackToLocal = (track) => {
 	localStorage.setItem("song", JSON.stringify(track));
 };
-
 
 searchBtn.on("click", (event) => {
 	event.preventDefault(event);
 	// Get the value from the input section from html
 	getAnimeTrack(searchInput.val());
 	searchInput.val("");
-    results.val("");
+	results.val("");
 });
 
 //===== Press 'Enter' on the input field to search ====//
@@ -69,6 +63,6 @@ searchInput.on("keydown", (event) => {
 		event.preventDefault();
 		getAnimeTrack(searchInput.val());
 		searchInput.val("");
-        results.val("");
+		results.val("");
 	}
 });
