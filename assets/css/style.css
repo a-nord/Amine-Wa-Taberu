@@ -8,17 +8,3 @@
   align-items: center;
   justify-content: space-around;
 }
-
-.page-introduction {
-  display: flex;
-  justify-content: center;
-  align-items: left;
-}
-
-.search-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  border: 1xp solid black;
-}
