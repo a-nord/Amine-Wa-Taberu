@@ -2,6 +2,10 @@
 const searchInput = $("#search-bar");
 const results = $(".results");
 const searchBtn = $("#searchBtn");
+let likeBtn = $(".likeBtn");
+const song = $("#song");
+let favSong = $("favSong");
+const likeSongs = $("#liked-songs");
 
 //================================= Functions =================================//
 
@@ -16,39 +20,76 @@ const getAnimeTrack = async (anime) => {
 		const songs = animeData.search.songs;
 		console.log(songs);
 		if (songs.length !== 0) {
-			//FIXME: make sure to change to `songs` out when done
 			songs.forEach((element) => {
-				const card = $(`<button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">${element.title} </button>`);
-				card.on("click", () => {
-					addTrackToLocal(element);
+				const card = $(
+					`<div>
+					<button id="song" type="button" class="favSong text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">${element.title} </button>
+
+					<button type="button" class="likeBtn text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Like</button>
+					</div>`
+				);
+				// Add a click event for the favSong button
+				card.find(".favSong").on("click", () => {
+					addTrackToLocal(element.title);
 					window.location.href = "index2.html";
 				});
+
+				// Add a click event for the likeBtn button
+				card.find(".likeBtn").on("click", () => {
+					const favorite = element.title;
+
+					addToFavorite(favorite);
+					console.log(`Liked: ${favorite}`);
+
+				});
+
 				results.append(card);
 			});
 		} else {
-			results.append(`There's no songs with this title. Please try a differnt spelling`);
+			results.append(`There's no songs with this title. Please try a different spelling`);
 			//searchMoreAnime(animeData)
 		}
 	} catch (error) {
 		console.error("Error:", error);
 	}
-};
-// END
-
-// const searchMoreAnime = async (list) => {
-//     console.log(`Got to searchMoreAnime`);
-//     console.log(list);
-//     const limti1Anime=list.search.anime.slice(0,1);
-//     const moreAnime = limti1Anime[0].name
-//    console.log(moreAnime)
-
-// }
-// // END
+}; // END
 
 const addTrackToLocal = (track) => {
 	localStorage.setItem("song", JSON.stringify(track));
 };
 
+const addToFavorite = (favorite) => {
+	let addToFavorite = JSON.parse(localStorage.getItem("favorite"));
+
+	if (!Array.isArray(addToFavorite)) {
+		addToFavorite = [];
+	} else if (addToFavorite.length > 14) {
+		addToFavorite.pop();
+	}
+
+	addToFavorite.unshift(favorite);
+	localStorage.setItem("favorite", JSON.stringify(addToFavorite));
+};
+
+const displayFavorites = () => {
+	likeSongs.empty();
+	const storedFavorites = JSON.parse(localStorage.getItem("favorite"));
+	if (storedFavorites) {
+		storedFavorites.forEach((favoriteSong) => {
+			const listSongs = $(
+				`<button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"> ${favoriteSong} </button>`
+			);
+			listSongs.on("click", () => {
+				
+				addTrackToLocal(favoriteSong);
+				console.log(favoriteSong);
+				window.location.href = "index2.html";
+			});
+			likeSongs.append(listSongs);
+		});
+	}
+};
+//============Handlers=================//
 searchBtn.on("click", (event) => {
 	event.preventDefault(event);
 	// Get the value from the input section from html
@@ -66,3 +107,6 @@ searchInput.on("keydown", (event) => {
 		results.val("");
 	}
 });
+
+getAnimeTrack("pokemon"); //FIXME:
+displayFavorites();
