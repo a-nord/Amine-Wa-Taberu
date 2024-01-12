@@ -12,7 +12,7 @@ SO THAT I can learn more about their background and get a list of more songs fro
 ```
 
 ## Directions For Future Development
-
+We are excited about the continuous growth and expansion of our website. Looking ahead, we envision enriching our platform by incorporating more talented artists and diverse anime content. Our commitment to future development includes a focus on enhancing the user experience with a broader range of creators and engaging anime.  We also want to include the translations of the song lyrics from their original language to english.  We believe this expansion will not only meet the evolving interests of our audience but also contribute to the overall success and vitality of our platform.
 
 ## Tools Used
 * HTML
