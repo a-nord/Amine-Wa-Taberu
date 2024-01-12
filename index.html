@@ -19,10 +19,6 @@
           width="100"
           height="100"
         />
-
-        
-       
-       
           <div class="page introduction mx-6 bg-cyan-300 text-gray-50 font-sans:Segoe UI Symbol" >
           <h1>Welcome, Anime Otaku - アニメオタク歓迎</h1>
         </div>
@@ -37,8 +33,9 @@
     <div class="hero"></div>
 
     
-      <div class="search-bar object-position:center flex justify-center  items-center rounded-none border-inherit   ">
-        <input type="text"    placeholder="Search an anime 🔍" />
+      <div class="object-position:center flex justify-center  items-center rounded-none border-inherit   ">
+        <input type="text" id="search-bar" placeholder="Search an anime 🔍"/>
+        <button id="seachBtn" type="button">Search</button>
       </div>
 
       <section class="results"></section>
@@ -46,11 +43,10 @@
       <section class="sidepart mx-6 bg-blue-400 font-sans text-gray-50" id="Top Songs">
         <h3 class="header2 bg-auto">Top Songs</h3>
          <div class="container-Top-songs">
-          <div class="grid-work"></div>
-            </div>
+            <div class="grid-work"></div>
+          </div>
             <p></p>
             </section>
-            
       
 
       <section class="sidepart mx-6  bg-teal-100 font-sans text-gray-50" id="gifposter">
@@ -79,6 +75,7 @@
           </ul></p>
         </div>
       </footer>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
