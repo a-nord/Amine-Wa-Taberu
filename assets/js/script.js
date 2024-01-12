@@ -21,11 +21,13 @@ let getAnimeTrack = async (anime) => {
 
          songs.forEach(element => {
             const card = $(`<button type="button">${element} </button>`)
+            card.on("click", () => {
+                getTrackInfo(element)
+            })
             
             results.append(card)
          });
 
-		// getTrackInfo(songs);
 
 	} catch (error) {
 		console.error("Error:", error);
@@ -34,13 +36,14 @@ let getAnimeTrack = async (anime) => {
 
 };
 
-
 let getTrackInfo = async (track) => {
     try {
         const lastFmAPI = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${track}&api_key=${apiKey}&format=json`;
 
         const trackResponse = await fetch(lastFmAPI);
         const trackData = await trackResponse.json();
+
+        console.log(trackData);
 
         const firstTrack = trackData.results?.trackmatches?.track[0];
 
