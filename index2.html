@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
 
-	<body class="bg-cover bg-gradient-to-b from-purple-300 to-purple-400" >
+	<body class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400" >
 		<nav class="bg-blue-500">
 			<div class="container mx-auto flex justify-between items-center py-1 ">
 			  <!-- Left-aligned logo -->
@@ -29,7 +29,7 @@
 				
 			  </a>
 	  
-			  <!-- Center-aligned about us -->
+			  <!-- Center-aligned search bar -->
 			  <ul class="hidden md:flex space-x-4">
 				<li class="active">
 					<input type="text" id="search-bar" placeholder="Search an anime "/>
@@ -38,34 +38,25 @@
 					class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
 					🔍</button>
 				</li>
-			  </ul>
-	  
-			  
-		  </nav>
-		<header class="bg-blue-500">
-		</header>
+			  </ul>			  
+		</nav>
 
 		<main>
-			<section class="artist-header">
-				<div class="pro-header"></div>
-
-				<div class="artist-avatar"></div>
-			</section>
-
 			<!-- Artist's -->
 			<section>
 				<h2 id="track-name"></h2>
-				<h2>By <span class="artist-name"></span></h2>
-
-				<h3>About <span class="artist-name"></span></h3>
-
-				<p id="artist-bio"></p>
+				<h2 class="text-2xl text-white font-semibold text-center">By <span class="artist-name"></span></h2>
+				<div class="aboutArtist">
+					<h3 class="text-xl text-white font-semibold text-center">About <span class="artist-name"></span></h3>
+					<br>
+					<p class="text-justify text-white text-center " id="artist-bio"></p>
+				</div>
 			</section>
 
 			<!-- Artist's Top Songs -->
 			<section>
-				<h3>More Music from <span class="artist-name"></span></h3>
-				<ul class="song-list"></ul>
+				<h3 class="text-2xl text-white font-semibold text-center">More Music from <span class="artist-name"></span></h3>
+				<ul class="song-list text-white text-center"></ul>
 			</section>
 
 			<section class="sidepart" id="gifposter"></section>
