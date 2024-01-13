@@ -2,9 +2,9 @@
 const searchInput = $("#search-bar");
 const results = $(".results");
 const searchBtn = $("#searchBtn");
-let likeBtn = $(".likeBtn");
+
 const song = $("#song");
-let favSong = $("favSong");
+
 const likeSongs = $("#liked-songs");
 
 //=================== Functions ==================//
@@ -20,16 +20,17 @@ const getAnimeTrack = async (anime) => {
 		// if there is a song then run the function
 		if (songs.length !== 0) {
 			songs.forEach((element) => {
+				// Make a button for each song, and a corresponding `like` button
 				const card = $(
 					`<div>
-					<button id="song" type="button" class="favSong text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">${element.title} </button>
+					<button id="song" type="button" class="song text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">${element.title} </button>
 					
 					<button type="button" class="likeBtn text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Like</button>
 					</div>`
 				);
 
 				// Clicking the song will go to artist's info page
-				card.find(".favSong").on("click", () => {
+				card.find(".song").on("click", () => {
 					addTrackToLocal(element.title);
 					window.location.href = "index2.html";
 				});
@@ -52,19 +53,14 @@ const getAnimeTrack = async (anime) => {
 	}
 }; // END
 
-//=== Put song name to local storage ===//
-const addTrackToLocal = (track) => {
-	localStorage.setItem("song", JSON.stringify(track));
-}; // END
-
 //=== Put liked songs to local storage ===//
 const addToFavorite = (favorite) => {
 	let addToFavorite = JSON.parse(localStorage.getItem("favorite"));
 
-	// make an array if it isn't
+	// Make an array if it isn't
 	if (!Array.isArray(addToFavorite)) {
 		addToFavorite = [];
-	// only have 15 songs in array
+	// Only have 15 songs in array
 	} else if (addToFavorite.length > 14) {
 		addToFavorite.pop();
 	}
@@ -95,6 +91,12 @@ const displayFavorites = () => {
 		});
 	}
 }; // END
+
+//=== Put song name to local storage ===//
+const addTrackToLocal = (track) => {
+	localStorage.setItem("song", JSON.stringify(track));
+}; // END
+
 
 //============ Handlers =================//
 searchBtn.on("click", (event) => {

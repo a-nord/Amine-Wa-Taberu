@@ -12,7 +12,7 @@ const apiSecret = `09f025e237eebbd253e8eadfc9b9edfd`;
 
 //=== Get the artist from the song's name ===//
 const getTrackInfo = async (songName) => {
-	console.log(1);
+
 	try {
 		const lastFmAPI = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${songName}&api_key=${apiKey}&format=json`;
 
@@ -30,7 +30,7 @@ const getTrackInfo = async (songName) => {
 			// Put the song's name on the page
 			trackNameEl.append(songName);
 		} else {
-			console.log("No artist found");
+			trackNameEl.append("No artist found");
 		}
 	} catch (error) {
 		console.error("Errrr", error.message);
@@ -44,7 +44,6 @@ const getArtistBio = async (artistName) => {
 
 		const artistResponse = await fetch(lastFmArtist);
 		const artistData = await artistResponse.json();
-
 		const content = artistData.artist.bio.content;
 
 		// Replace newline characters with HTML line break tags
@@ -68,12 +67,13 @@ const getArtistSongs = async (artistName) => {
 
 		//Just get the first 5 index
 		const topSongs = topSongsData.toptracks.track.slice(0, 5);
+
+		// Make a listEl for each song
 		topSongs.forEach((topSongs) => {
 			const songName = $(`<li>${topSongs.name}</li>`);
 			songListEl.append(songName);
 		});
 
-		// console.log(typeof topSongsData.toptracks.track);
 	} catch (error) {
 		console.error("Errrr", error.message);
 	}
@@ -82,7 +82,6 @@ const getArtistSongs = async (artistName) => {
 //=== Get song name from local storage ===//
 const getFromLocal = () => {
 	let getTrack = JSON.parse(localStorage.getItem("song"));
-	console.log(getTrack);
 	getTrackInfo(getTrack);
 };
 // init function
