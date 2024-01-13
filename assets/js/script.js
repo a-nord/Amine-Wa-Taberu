@@ -117,3 +117,4 @@ searchInput.on("keydown", (event) => {
 
 // init function
 displayFavorites();
+-- getAnimeTrack('pokemon')
