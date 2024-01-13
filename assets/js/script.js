@@ -2,9 +2,7 @@
 const searchInput = $("#search-bar");
 const results = $(".results");
 const searchBtn = $("#searchBtn");
-
 const song = $("#song");
-
 const likeSongs = $("#liked-songs");
 
 //=================== Functions ==================//
