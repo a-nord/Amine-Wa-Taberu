@@ -23,5 +23,14 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 55%;
+  width: 50%;
 }
+
+/* aside{
+  margin-right: 20px;
+  padding: 20px;
+  float: right;
+  width: 20%;
+  height: 500px;
+  size: cover;  
+} */
