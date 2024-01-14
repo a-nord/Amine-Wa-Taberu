@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
-  <body> 
-    <nav class="bg-blue-500">
+  <body class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400"
+    
+    <nav class="bg-purple-400">
         <div class="container mx-auto flex justify-between items-center py-4">
           <!-- Left-aligned logo -->
           <a
@@ -24,7 +25,7 @@
               width="100"
               height="100"
             />
-            
+             
           </a>
   
           
@@ -49,7 +50,7 @@
 
          <div id="second-header"> 
           
-         <h1 class="items-center text-6xl font-extrabold bg-cyan-400 text-indigo-50 ">Welcome, Anime Otaku - アニメオタク歓迎 </h1> 
+         <h1 class="items-center text-6xl font-extrabold bg-cyan-400 text-indigo-50 text-center">Welcome,To Anime Otaku - アニメオタク歓迎 </h1> 
           
           <h2 class="text-indigo-400 text-1xl font-mono me-2  text-center bg-auto bg-cyan-400">Here, you can explore and discover the captivating world of anime theme songs. Dive into a vast collection where you have the power to search for your favorite anime themes and uncover detailed information about the songs and the talented artists behind them. Get ready to embark on a musical journey through the enchanting melodies that bring your favorite anime moments to life. Start your search and enjoy the magic of anime music!</h2>
           
@@ -66,51 +67,66 @@
 
     
       <div class="object-position:center flex justify-center  items-center rounded-none border-inherit   ">
-        <input type="text" id="search-bar" placeholder="Search an anime 🔍"/>
+        <input type="text" id="search-bar" placeholder="Search an anime "/>
         <button id="searchBtn"
                 type="button" 
-                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                Search</button>
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white  focus:ring-4 focus:outline-none focus:ring-blue-300 ring-blue-800">
+                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">Search</button>
       </div>
 
       <section class="results"></section>
 
-
-      <section class="sidepart mx-6 bg-blue-400 font-sans text-gray-50 col-span-1" id="Top Songs">
-        <h3 class="header2 bg-auto">Favorite Songs</h3>
-         <div id="liked-songs">
+      <div class="Columns flex-row bg-cover bg-gradient-to-b from-purple-400 to-purple-400">
+      <section class="sidepart mx-6 bg-blue-400 font-sans text-gray-50 col-span-1 flex-row" id="Top Songs">
+        <div class="py-8 bg-gray-200 rounded">
+            <div class="container mx-auto px-4">
+              <h3 class="text-2xl font-semibold text-cyan-400">Favorite songs</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="col-span-1 md:col-span-1">
+                  <div class="bg-white rounded-lg shadow-lg flex-row">
+                    <div class="p-4">
+                       <div id="liked-songs">
 
           </div>
             <p></p>
             </section>
       
 
-      <section class="sidepart mx-6  bg-teal-100 font-sans text-gray-50 col-span-2" id="gifposter">
-        <h3 class="header3 bg-auto">Anime Gifs</h3>
-         <div class="container-Anime-Gifs">
+      <section class="sidepart mx-6  bg-teal-100 font-sans text-gray-50 col-span-2 flex-row" id="gifposter">
+        <div class="py-8 bg-gray-200 rounded">
+            <div class="container mx-auto px-4">
+              <h3 class="text-2xl font-semibold text-cyan-400 ">Anime Gifs</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="col-span-1 md:col-span-1">
+                  <div class="bg-white rounded-lg shadow-lg flex-row">
+                    <div class="p-4"> 
+                       <div class="container-Anime-Gifs">
           
           <p></p>
      </section>
-
+    </div>
      </main>
-    
-    
-    <footer>
-        <div class="authors font-sans text-indigo-500 justify-center items-stretch">
-          <h3>Github Contact Info</h3>
-         <p><ul>
+     <footer class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400         rounded-lg shadow dark:bg-gray-900 m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+<div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="http://127.0.0.1:5500/index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src="./assets/images/Anime-Otaku.png" class="h-10" alt="anime otaku logo"/>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Anime Otaku </span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 ">
             <li>
-              <a href="https://github.com/MikeNguyen1092" target="_blank">Mike Nguyen</a>
+                <a href="about.html" class="hover:underline me-4 md:me-6">About Us</a>
             </li>
-            <li>
-              <a href="https://github.com/a-nord/Anime-Otaku" target="_blank">Ashley Nord</a>
-            </li>
-            <li>
-              <a href="https://github.com/Jazminnova" target="_blank">Jazmin Nova</a>
-            </li>
-          </ul></p>
-        </div>
-      </footer>
+        </ul>
+    </div>
+    <hr class="my-6  sm:mx-auto  lg:my-8" />
+    <span class="block text-sm sm:text-center text-white">© 2023 <a href="about.html" class="hover:underline">Anime Otaku - アニメオタク歓迎™</a> Created by Ashley Nord, Michael Nguyen, Jazmin Nova.</span>
+</div>
+</footer>
+
       <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
