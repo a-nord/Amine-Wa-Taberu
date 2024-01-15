@@ -16,7 +16,7 @@
   width: 100vw;
 }
 
-.aboutArtist{
+.aboutArtist {
   text-align: center;
   border: 10px solid white;
   padding: 10px 50px;
@@ -34,3 +34,7 @@
   height: 500px;
   size: cover;  
 } */
+
+#likesongs {
+  flex-direction: column;
+}
