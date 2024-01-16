@@ -10,7 +10,7 @@ const clearHist = $("#clearHist");
 
 //=== Search for Anime's songs ===//
 const getAnimeTrack = async (anime) => {
-	results.removeClass("bg-white p-8");
+	results.removeClass("bg-white");
 	results.empty();
 	try {
 		const animeResponse = await fetch(`https://api.animethemes.moe/search?q=${anime}`);
@@ -19,7 +19,7 @@ const getAnimeTrack = async (anime) => {
 
 		// if there is a song then run the function
 		if (songs.length !== 0) {
-			results.addClass("bg-white p-8");
+			results.addClass("bg-white");
 			songs.forEach((element) => {
 				// Make a button for each song, and a corresponding `👍` button
 				const card = $(
