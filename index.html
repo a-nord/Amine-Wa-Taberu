@@ -6,11 +6,51 @@
     <title>𝓐𝓷𝓲𝓶𝓮 𝓞𝓽𝓪𝓴𝓾(°◡°♡)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!--Media query sizes-->
+    <style>
+      /* Custom styles for smaller screens (sm) */
+      @media (max-width: 640px) {
+        .text-responsive-sm {
+          font-size: 14px;
+        }
+      }
+
+      /* Custom styles for medium screens (md) */
+      @media (min-width: 641px) and (max-width: 768px) {
+        .text-responsive-md {
+          font-size: 16px;
+        }
+      }
+
+      /* Custom styles for large screens (lg) */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .text-responsive-lg {
+          font-size: 18px;
+        }
+      }
+
+      /* Custom styles for extra-large screens (xl) */
+      @media (min-width: 1025px) {
+        .text-responsive-xl {
+          font-size: 20px;
+        }
+      }
+    </style>
   </head>
   <!--background color of page -->
   <body class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400">
     <nav class="bg-purple-400">
       <div class="container mx-auto flex justify-between items-center py-4">
+        <!--media query -->
+        <div
+          class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400 p-8">
+          <p class="text-responsive-sm text-center"></p>
+          <p class="text-responsive-md text-center"></p>
+          <p class="text-responsive-lg text-center"></p>
+          <p class="text-responsive-xl text-center"></p>
+        </div>
+
         <!-- Left-aligned logo -->
         <a
           href="index.html"
