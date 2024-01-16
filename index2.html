@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>𝓐𝓷𝓲𝓶𝓮 𝓞𝓽𝓪𝓴𝓾(°◡°♡)</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
+
+	<body class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400" >
+		<nav class="bg-blue-500">
+			<div class="container mx-auto flex justify-between items-center py-1 ">
+			  <!-- Left-aligned logo -->
+			  <a
+				href="index.html"
+				class="text-white text-2xl font-semibold flex items-center"
+			  >
+				
+				<!-- Add your logo image here -->
+				<img
+				class="logo w-30 h-30 rounded border-2 text-center" 
+				src="./assets/images/Anime-Otaku.png"
+				alt="image of logo with anime backgrounds"
+				width="100"
+				height="100"				
+				/>
+				<h2 class="pl-3">Anime Otaku - アニメオタク歓迎!!</h2>
+				
+			  </a>
+	  
+			  <!-- Center-aligned search bar -->
+			  <ul class="hidden md:flex space-x-4">
+				<li class="active">
+					<input type="text" id="search-bar" placeholder="Search an anime "/>
+					<button id="searchBtn"
+					type="button" 
+					class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+					🔍</button>
+				</li>
+			  </ul>			  
+		</nav>
+
+		<main>
+			<!-- Artist's -->
+			<section>
+				<h2 id="track-name" class="text-2xl text-white font-semibold text-center"></h2>
+				<h2 class="text-2xl text-white font-semibold text-center">By <span class="artist-name"></span></h2>
+				<div class="aboutArtist">
+					<h3 class="text-xl text-white font-semibold text-center">About <span class="artist-name"></span></h3>
+					<br>
+					<p class="text-justify text-white text-center " id="artist-bio"></p>
+				</div>
+			</section>
+
+			<!-- Artist's Top Songs -->
+			<section>
+				<h3 class="text-2xl text-white font-semibold text-center">More Music from <span class="artist-name"></span></h3>
+				<ul class="song-list text-white text-center"></ul>
+			</section>
+
+		</main>
+		<!-- <aside class="sidepart" id="gifposter">
+			<img src="./assets/images/naruto.jpg" alt="" />
+		</aside> -->
+
+		<footer class="bg-cover bg-gradient-to-b from-purple-400 to-purple-400 rounded-lg m-4 w-full max-w-screen-xl mx-auto p-4 md:py-8">
+			<!-- layering for nav-->
+			<div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+				<div class="sm:flex sm:items-center sm:justify-between">
+					<!--logo with functional links-->
+					<a href="index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+						<img src="./assets/images/Anime-Otaku.png" class="h-10" alt="anime otaku logo" />
+						<span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Anime Otaku </span>
+					</a>
+
+					<!--about us link to the right-->
+
+					<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
+						<li>
+							<a href="about.html" class="hover:underline me-4 md:me-6">About Us</a>
+						</li>
+					</ul>
+				</div>
+
+				<!--Divider and closing for page-->
+				<hr class="my-6 sm:mx-auto lg:my-8" />
+				<span class="block text-sm sm:text-center text-white"
+					>© 2024
+					<a href="about.html" class="hover:underline my-6 sm:mx-auto lg:my-8">Anime Otaku - アニメオタク歓迎™</a>
+					Created by Ashley Nord, Michael Nguyen, Jazmin Nova.</span
+				>
+			</div>
+		</footer>
+
+		<!-- ========== Scripts================ -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="./assets/js/artist.js"></script>
+		<script src="./assets/js/script.js"></script>
+	</body>
+</html>
