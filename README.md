@@ -40,4 +40,6 @@ The application is hosted at: https://a-nord.github.io/Anime-Otaku/
 ```
 
 ## Preview
-<!-- ![screenshot](screenshot link) -->
+<p align="center">
+  <img src="./assets/images/preview.gif" alt="web app preview" width="1000"/>
+</p>
